@@ -23,5 +23,5 @@ Docker will download the Debian image and then execute the installation steps.
 Once the build process is over, get and enjoy your new proxified platform by settings your proxy to 127.0.0.1:1337 :)
 
 ```bash
-docker run --rm -it -p 1337:1337 -e PROXY_PORT=1337 -e IP_ADDRESSES="172.17.0.2|172.17.0.1" --privileged --sysctl net.ipv6.conf.all.disable_ipv6=0 --name proxify proxify
+docker run --rm -it -p 1337:1337 -e PROXY_PORT=1337 -e IP_ADDRESSES="172.17.0.2|172.17.0.1" --cap-add=NET_ADMIN --sysctl net.ipv6.conf.all.disable_ipv6=0 --name proxify proxify
 ```
