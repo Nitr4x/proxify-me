@@ -24,15 +24,28 @@ done
 
 iptables -A INPUT -p tcp --dport $PROXY_PORT -j REJECT
 
-echo -e "\n${GREEN}[+] Performing VPN tunneling\n${NC}"
-
-for cnf in $(ls /root/vpn); do
-    echo -e "$cnf is started"
-    openvpn /root/vpn/$cnf > /dev/null 2>&1 &
-done
-
 echo -e "\n${GREEN}[+] Proxy open on localhost:$PROXY_PORT\n${NC}"
 
-echo -e "Type ${RED}close${NC} to shutting down the proxy: ---> "
+echo -e "Type ${RED}help${NC} to display the menu: --->\n"
 
-x='';while [[ "$x" != "close" ]]; do read -n5 x; done
+function help {
+    echo -e "${GREEN}\nifconfig\nvpn\nquit\n${NC}"
+}
+
+while :
+do
+    read input
+
+    case "$input" in
+        vpn)
+            echo -e "\n${GREEN}Mounting VPN tunneling${RED} [This could take a while. Be patient]${NC}\n" && openvpn /root/vpn/`ls /root/vpn/` > /dev/null 2>&1 &;;
+        ifconfig)
+            echo -e "\n${GREEN}$(ifconfig)\n${NC}";;
+        quit)
+            exit 1;;
+        help)
+            help;;
+        *)
+            echo -e "\n${RED}Unkown command\n${NC}";;
+    esac
+done
