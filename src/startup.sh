@@ -38,7 +38,7 @@ do
 
     case "$input" in
         vpn)
-            echo -e "\n${GREEN}Mounting VPN tunneling${RED} [This could take a while. Be patient]${NC}\n" && openvpn /root/vpn/`ls /root/vpn/` > /dev/null 2>&1 &;;
+            echo -e "\n${GREEN}Mounting VPN tunneling${RED} [This could take a while. Be patient]${NC}\n" && openvpn /root/vpn/`ls /root/vpn/`;;
         ifconfig)
             echo -e "\n${GREEN}$(ifconfig)\n${NC}";;
         quit)
