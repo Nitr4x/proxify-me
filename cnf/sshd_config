@@ -105,6 +105,7 @@ PrintMotd no
 #PermitTunnel no
 #ChrootDirectory none
 #VersionAddendum none
+PermitOpen any
 
 # no default banner path
 #Banner none
