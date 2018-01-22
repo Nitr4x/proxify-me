@@ -1,7 +1,7 @@
 FROM debian:latest
 
 RUN apt update
-RUN apt -y install openvpn ssh net-tools iptables
+RUN apt -y install openvpn ssh net-tools iptables tor
 
 ADD cnf/sshd_config /etc/ssh/sshd_config
 ADD cnf/.ssh /root/.ssh
