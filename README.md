@@ -5,6 +5,7 @@ Docker container whose aim is to provide a simple way to deploy a SOCKS proxy pl
 # Customization
 
 This container allows mounting VPN tunnels. To do so, place your openvpn configurations in the *cnf/vpn* folder and/or modify the startup.sh script in order to fit your needs.
+By the same token, don't forget to change the root ssh password in the Dockerfile ;)
 
 # Build
 
