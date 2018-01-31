@@ -16,7 +16,6 @@ sysctl -w net.ipv4.conf.eth0.route_localnet=1
 echo -e "\n${GREEN}[+] Setting and starting the SSH service\n${NC}"
 
 /etc/init.d/ssh start&
-chmod 600 /root/.ssh/id_rsa
 sleep 3
 ssh -f -N -D 0.0.0.0:$PROXY_PORT 127.0.0.1
 
